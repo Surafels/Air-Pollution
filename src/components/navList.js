@@ -1,25 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faMicrophone, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function Navigation() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/homePage">
-            <FontAwesomeIcon icon={faCog} />
+
+    <div>
+      {isHome ? (
+        <div />
+      ) : (
+        <div>
+          <NavLink to="/">
+            <FontAwesomeIcon icon={faArrowLeft} />
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/itemDetail" />
-        </li>
-        <li>
-          <NavLink />
-        </li>
-      </ul>
-    </nav>
+        </div>
+      )}
+      <div>
+        <h1>Air Pollution</h1>
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faArrowLeft} />
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faMicrophone} />
+        <FontAwesomeIcon icon={faCog} />
+
+      </div>
+    </div>
   );
 }
 

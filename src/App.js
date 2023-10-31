@@ -1,18 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
-import Home from './components/homePage';
+import HomePage from './components/homePage';
+import Navigation from './components/navList';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="homePage" element={<Home />} />
-
         <Route
           path="/"
-          element={<FontAwesomeIcon icon={faCog} />}
+          element={
+          (
+            <div>
+              <HomePage />
+              <Navigation />
+            </div>
+ )
+        }
         />
       </Routes>
     </div>
